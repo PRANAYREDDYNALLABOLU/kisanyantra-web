@@ -789,22 +789,27 @@ export default function Page() {
             {[
               { title: 'For Farmers', links: ['Download App', 'How to Book', 'Equipment List', 'Support'] },
               { title: 'For Drivers', links: ['Register', 'Driver App', 'Earnings Guide', 'Verification'] },
-              { title: 'Company', links: ['About Us', 'Contact', 'Privacy Policy', 'Terms of Service'] },
+              { title: 'Company', links: [
+  { label: 'About Us',        href: '#contact'  },
+  { label: 'Contact',         href: '#contact'  },
+  { label: 'Privacy Policy',  href: '/privacy'  },
+  { label: 'Terms of Service',href: '/terms'    },
+]},
             ].map((col, i) => (
               <div key={i}>
                 <h4 style={{ color: '#fff', fontWeight: 800, fontSize: 14, marginBottom: 20, textTransform: 'uppercase', letterSpacing: '0.08em' }}>{col.title}</h4>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
                   {col.links.map(link => (
-                    <a key={link} href="#" style={{
-                      color: 'rgba(255,255,255,0.4)', fontSize: 14, textDecoration: 'none',
-                      transition: 'color 0.2s',
-                    }}
-                    onMouseEnter={e => e.target.style.color = '#D4A017'}
-                    onMouseLeave={e => e.target.style.color = 'rgba(255,255,255,0.4)'}
-                    >
-                      {link}
-                    </a>
-                  ))}
+  <a key={link.label} href={link.href} style={{
+    color: 'rgba(255,255,255,0.4)', fontSize: 14, textDecoration: 'none',
+    transition: 'color 0.2s',
+  }}
+  onMouseEnter={e => e.target.style.color = '#D4A017'}
+  onMouseLeave={e => e.target.style.color = 'rgba(255,255,255,0.4)'}
+  >
+    {link.label}
+  </a>
+))}
                 </div>
               </div>
             ))}
