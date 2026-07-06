@@ -14,7 +14,7 @@ export default function ContactPage() {
   }
   setLoading(true);
   try {
-    const res = await fetch('https://kisanyantra-backend-production.up.railway.app/api/contact', {
+    const res = await fetch('https://kisanyantra-backend-production.up.railway.app/api/admin/contact', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(form),
