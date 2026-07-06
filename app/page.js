@@ -29,7 +29,8 @@ const NAV = [
   { label: 'How it works', href: '#how-it-works' },
   { label: 'Equipment',    href: '#equipment'    },
   { label: 'For drivers',  href: '#for-drivers'  },
-  { label: 'Contact',      href: '#contact'      },
+  { label: 'About',   href: '/about'   },
+{ label: 'Contact', href: '/contact' },
 ];
 
 const FOOTER_COLS = [
@@ -54,8 +55,8 @@ const FOOTER_COLS = [
   {
     title: 'Company',
     links: [
-      { label: 'About Us',         href: '#contact'  },
-      { label: 'Contact',          href: '#contact'  },
+      { label: 'About Us', href: '/about'   },
+{ label: 'Contact',  href: '/contact' },
       { label: 'Privacy Policy',   href: '/privacy'  },
       { label: 'Terms of Service', href: '/terms'    },
     ],
