@@ -7,17 +7,26 @@ export default function ContactPage() {
   const [submitted,setSubmitted]= useState(false);
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!form.name || !form.phone || !form.message) {
-      alert('Please fill in Name, Phone and Message');
-      return;
-    }
-    setLoading(true);
-    // Simulate submission (replace with real API call later)
-    await new Promise(r => setTimeout(r, 1200));
+  e.preventDefault();
+  if (!form.name || !form.phone || !form.message) {
+    alert('Please fill in Name, Phone and Message');
+    return;
+  }
+  setLoading(true);
+  try {
+    const res = await fetch('https://kisanyantra-backend-production.up.railway.app/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(form),
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error);
     setSubmitted(true);
-    setLoading(false);
-  };
+  } catch (err) {
+    alert('Could not send message. Please try again or call us directly.');
+  }
+  setLoading(false);
+};
 
   return (
     <div style={{ background: '#FAFAF8', minHeight: '100vh', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
