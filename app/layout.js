@@ -29,9 +29,10 @@ export const metadata = {
     images: ['/og-image.png'],
   },
   icons: {
-    icon: '/favicon.ico',
-    apple: '/apple-icon.png',
-  },
+  icon: '/favicon.png',
+  apple: '/favicon.png',
+  shortcut: '/favicon.png',
+},
   robots: {
     index: true,
     follow: true,
