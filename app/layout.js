@@ -29,9 +29,9 @@ export const metadata = {
     images: ['/og-image.png'],
   },
   icons: {
-  icon: '/logo.png',
-  apple: '/logo.png',
-},
+    icon: '/favicon.ico',
+    apple: '/apple-icon.png',
+  },
   robots: {
     index: true,
     follow: true,
