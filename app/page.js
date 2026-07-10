@@ -597,7 +597,7 @@ export default function Page() {
           <div style={{ position: 'absolute', inset: 0, opacity: 0.04, backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
           <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: 600, height: 600, background: 'radial-gradient(circle, rgba(212,160,23,0.08) 0%, transparent 65%)', borderRadius: '50%' }} />
           <div style={{ maxWidth: 700, margin: '0 auto', padding: '100px 24px', textAlign: 'center', position: 'relative', zIndex: 1 }}>
-            <div className="animate-float" style={{ fontSize: 64, marginBottom: 24 }}>🌾</div>
+            <img src="/favicon.png" alt="KisanYantra" className="animate-float" style={{ width: 80, height: 80, objectFit: 'contain', marginBottom: 24 }} />
             <h2 style={{ fontSize: 'clamp(36px, 5vw, 64px)', fontWeight: 900, letterSpacing: '-2px', color: '#fff', fontFamily: 'Fraunces, serif', lineHeight: 1.1, marginBottom: 20 }}>
               Ready to book your<br />
               <span style={{ color: '#D4A017' }}>first ride?</span>
