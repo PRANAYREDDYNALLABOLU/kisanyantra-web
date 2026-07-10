@@ -131,9 +131,9 @@ export default function Page() {
       }}>
         <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 64 }}>
           <a href="/" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
-            <span style={{ fontSize: 28 }}>🌾</span>
-            <span style={{ fontSize: 20, fontWeight: 900, letterSpacing: '-0.5px', color: scrolled ? '#1B4332' : '#fff', fontFamily: 'Fraunces, serif' }}>KisanYantra</span>
-          </a>
+  <img src="/logo.png" alt="KisanYantra" style={{ width: 40, height: 40, objectFit: 'contain' }} />
+  <span style={{ fontSize: 20, fontWeight: 900, letterSpacing: '-0.5px', color: scrolled ? '#1B4332' : '#fff', fontFamily: 'Fraunces, serif' }}>KisanYantra</span>
+</a>
 
           {/* Desktop nav */}
           <nav style={{ display: 'flex', alignItems: 'center', gap: 36 }} className="hidden md:flex">
@@ -670,8 +670,8 @@ export default function Page() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 40, marginBottom: 48 }}>
             <div>
               <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16 }}>
-                <span style={{ fontSize: 28 }}>🌾</span>
-                <span style={{ color: '#fff', fontWeight: 900, fontSize: 20, fontFamily: 'Fraunces, serif' }}>KisanYantra</span>
+                <img src="/logo.png" alt="KisanYantra" style={{ width: 40, height: 40, objectFit: 'contain' }} />
+<span style={{ color: '#fff', fontWeight: 900, fontSize: 20, fontFamily: 'Fraunces, serif' }}>KisanYantra</span>
               </div>
               <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: 14, lineHeight: 1.8, marginBottom: 12 }}>
                 Connecting farmers with equipment owners across India.
