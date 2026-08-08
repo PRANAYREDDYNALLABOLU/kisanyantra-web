@@ -16,7 +16,7 @@ const STEPS = [
   { num: '01', icon: '🔧', title: 'Pick equipment',    body: 'Choose from 16+ types — cultivators, sprayers, harvesters and more.' },
   { num: '02', icon: '📍', title: 'Drop your pin',     body: 'Tap your farm on the map or type the address. We find drivers near you.' },
   { num: '03', icon: '🚜', title: 'Driver heads out',  body: 'A verified equipment owner accepts and navigates to your field.' },
-  { num: '04', icon: '✅', title: 'Work gets done',    body: 'Pay after the job is complete. Rate your experience.' },
+  { num: '04', icon: '✅', title: 'Confirm & pay',      body: 'Approve the fare and your driver starts right away. Rate your experience after.' },
 ];
 
 const TESTIMONIALS = [
@@ -111,6 +111,7 @@ export default function Page() {
   const [activeEq,  setActiveEq]  = useState(0);
   const featuresRef = useRef(null);
   const featuresInView = useInView(featuresRef);
+  const phoneRef = useRef(null);
 
   useEffect(() => {
     const t = setInterval(() => setActiveEq(p => (p + 1) % EQUIPMENT.length), 1800);
@@ -269,20 +270,33 @@ export default function Page() {
 
               <div style={{ display: 'flex', gap: 32, flexWrap: 'wrap', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: 32 }}>
                 {[
-                  { v: '500+', l: 'Farmers' },
-                  { v: '50+',  l: 'Equipment owners' },
-                  { v: '16+',  l: 'Equipment types' },
-                  { v: '10+',  l: 'Districts' },
+                  { v: '16+',      l: 'Equipment types' },
+                  { v: 'TG & AP',  l: 'States covered' },
+                  { v: 'Verified', l: 'Equipment owners' },
+                  { v: '24/7',     l: 'Support' },
                 ].map((s, i) => <StatCounter key={i} value={s.v} label={s.l} />)}
               </div>
             </div>
 
             {/* Right — Phone mockup */}
-            <div style={{ display: 'flex', justifyContent: 'center' }} className="hidden lg:flex animate-fadeUp delay-300">
+            <div
+              style={{ display: 'flex', justifyContent: 'center', perspective: 1200 }}
+              className="hidden lg:flex animate-fadeUp delay-300"
+              onMouseMove={e => {
+                if (!phoneRef.current) return;
+                const r = e.currentTarget.getBoundingClientRect();
+                const x = (e.clientX - r.left) / r.width - 0.5;
+                const y = (e.clientY - r.top) / r.height - 0.5;
+                phoneRef.current.style.transform = `rotateY(${x * 16}deg) rotateX(${-y * 12}deg)`;
+              }}
+              onMouseLeave={() => { if (phoneRef.current) phoneRef.current.style.transform = 'rotateY(-6deg) rotateX(4deg)'; }}
+            >
               <div className="animate-float" style={{ position: 'relative' }}>
-                <div style={{
+                <div ref={phoneRef} style={{
                   width: 280, height: 560, background: '#0D1F15', borderRadius: 40, padding: 12,
                   boxShadow: '0 40px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.08)',
+                  transform: 'rotateY(-6deg) rotateX(4deg)', transformStyle: 'preserve-3d',
+                  transition: 'transform 0.15s ease-out',
                 }}>
                   <div style={{ background: '#F5F5F0', borderRadius: 30, height: '100%', overflow: 'hidden', position: 'relative' }}>
                     <div style={{ background: '#1B4332', height: 44, display: 'flex', alignItems: 'center', padding: '0 20px', justifyContent: 'space-between' }}>
@@ -354,7 +368,7 @@ export default function Page() {
                 }}>
                   <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.6)', marginBottom: 2 }}>Estimated fare</div>
                   <div style={{ fontSize: 20, fontWeight: 900, color: '#D4A017', fontFamily: 'Fraunces, serif' }}>₹850</div>
-                  <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.5)', marginTop: 2 }}>Pay after work</div>
+                  <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.5)', marginTop: 2 }}>Confirm to start work</div>
                 </div>
               </div>
             </div>
@@ -418,7 +432,21 @@ export default function Page() {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: 16 }}>
             {EQUIPMENT.map((eq, i) => (
-              <div key={i} className="card-lift" style={{ background: '#fff', borderRadius: 20, padding: '24px 20px', border: '1px solid #E8E5DE' }}>
+              <div
+                key={i}
+                style={{ background: '#fff', borderRadius: 20, padding: '24px 20px', border: '1px solid #E8E5DE', transition: 'transform 0.12s ease-out, box-shadow 0.3s ease', cursor: 'default' }}
+                onMouseMove={e => {
+                  const r = e.currentTarget.getBoundingClientRect();
+                  const x = (e.clientX - r.left) / r.width - 0.5;
+                  const y = (e.clientY - r.top) / r.height - 0.5;
+                  e.currentTarget.style.transform = `perspective(700px) rotateY(${x * 12}deg) rotateX(${-y * 12}deg) translateY(-4px)`;
+                  e.currentTarget.style.boxShadow = '0 24px 48px rgba(27,67,50,0.14)';
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.transform = 'perspective(700px) rotateY(0) rotateX(0) translateY(0)';
+                  e.currentTarget.style.boxShadow = 'none';
+                }}
+              >
                 <div style={{ width: 52, height: 52, background: eq.color, borderRadius: 14, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 26, marginBottom: 16 }}>
                   {eq.icon}
                 </div>
@@ -450,7 +478,7 @@ export default function Page() {
                 {[
                   { icon: '⚡', title: 'Booked in under 5 min', desc: 'From open app to driver confirmed' },
                   { icon: '🗺️', title: 'Live map tracking',     desc: 'Watch the driver navigate to your field' },
-                  { icon: '💰', title: 'Pay after work',        desc: 'No advance, no risk, full control' },
+                  { icon: '💰', title: 'Pay to confirm, instantly', desc: 'Approve the upfront fare and your driver starts right away' },
                 ].map((f, i) => (
                   <div key={i} style={{ display: 'flex', gap: 16, alignItems: 'flex-start' }}>
                     <div style={{ width: 44, height: 44, background: '#E8F5E9', borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 20, flexShrink: 0 }}>
@@ -482,7 +510,7 @@ export default function Page() {
                 { icon: '👨‍🌾', stat: '1–5 ac',  label: 'Small farmers',      bg: '#E8F5E9' },
                 { icon: '🌾',   stat: '5–20 ac', label: 'Medium farms',       bg: '#FFF8E1' },
                 { icon: '🏡',   stat: '20+ ac',  label: 'Large farms',        bg: '#E3F2FD' },
-                { icon: '⭐',   stat: '4.9★',    label: 'Avg. driver rating', bg: '#FCE4EC' },
+                { icon: '✅',   stat: 'Verified', label: 'Every equipment owner', bg: '#FCE4EC' },
               ].map((c, i) => (
                 <div key={i} className="card-lift" style={{ background: c.bg, borderRadius: 20, padding: '28px 20px', textAlign: 'center' }}>
                   <div style={{ fontSize: 36, marginBottom: 12 }}>{c.icon}</div>
@@ -509,13 +537,13 @@ export default function Page() {
                   <span style={{ color: '#D4A017' }}>Your income.</span>
                 </h2>
                 <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: 17, lineHeight: 1.8, marginBottom: 40 }}>
-                  Register your equipment. Receive ride requests from verified farmers. Navigate with our shortest route engine. Get paid.
+                  Register your equipment. Receive ride requests from verified farmers nearby. Navigate straight to the field. Get paid.
                 </p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 14, marginBottom: 40 }}>
                   {[
                     'Accept or reject any ride — full control',
                     'Real-time navigation to the farm',
-                    'Transparent earnings dashboard',
+                    'Clear fare and payment status on every ride',
                     'Build ratings that bring more work',
                   ].map((f, i) => (
                     <div key={i} style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
@@ -649,7 +677,7 @@ export default function Page() {
             {[
               { icon: '📞', title: 'Call us',   detail: '+91 9182817019',       sub: 'Mon – Sat, 9 AM to 6 PM', bg: '#E8F5E9' },
               { icon: '📧', title: 'Email us',  detail: 'support@kisanyantra.in', sub: 'We reply within 24 hours', bg: '#E3F2FD' },
-              { icon: '📍', title: 'Visit us',  detail: 'Hyderabad, Telangana',  sub: 'India',                    bg: '#FFF8E1' },
+              { icon: '📍', title: 'Visit us',  detail: 'Nalgonda, Telangana',  sub: 'India – 508001',            bg: '#FFF8E1' },
             ].map((c, i) => (
               <div key={i} className="card-lift" style={{ background: '#fff', borderRadius: 20, padding: '32px 24px', border: '1px solid #E8E5DE', textAlign: 'center' }}>
                 <div style={{ width: 56, height: 56, background: c.bg, borderRadius: 16, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 26, margin: '0 auto 20px' }}>
@@ -700,7 +728,7 @@ export default function Page() {
 
           <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: 32, display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: 16 }}>
             <p style={{ color: 'rgba(255,255,255,0.25)', fontSize: 13 }}>© 2026 KisanYantra. All rights reserved.</p>
-            <p style={{ color: 'rgba(255,255,255,0.2)', fontSize: 13 }}>Made with ❤️ for Indian Farmers • Hyderabad, India</p>
+            <p style={{ color: 'rgba(255,255,255,0.2)', fontSize: 13 }}>Made with ❤️ for Indian Farmers • Nalgonda, Telangana</p>
           </div>
         </div>
       </footer>
