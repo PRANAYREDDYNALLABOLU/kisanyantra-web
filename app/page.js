@@ -37,7 +37,7 @@ const FOOTER_COLS = [
   {
     title: 'For Farmers',
     links: [
-      { label: 'Download App',    href: '#download'    },
+      { label: 'Launching Soon', href: '#download'    },
       { label: 'How to Book',     href: '#how-it-works'},
       { label: 'Equipment List',  href: '#equipment'   },
       { label: 'Support',         href: '#contact'     },
@@ -46,8 +46,8 @@ const FOOTER_COLS = [
   {
     title: 'For Drivers',
     links: [
-      { label: 'Register',        href: '#download'    },
-      { label: 'Driver App',      href: '#download'    },
+      { label: 'Register Interest', href: '#download'    },
+      { label: 'Driver App — Coming Soon', href: '#download'    },
       { label: 'Earnings Guide',  href: '#for-drivers' },
       { label: 'Verification',    href: '#contact'     },
     ],
@@ -159,7 +159,7 @@ export default function Page() {
             onMouseEnter={e => { e.target.style.background = '#2D6A4F'; e.target.style.transform = 'translateY(-1px)'; }}
             onMouseLeave={e => { e.target.style.background = '#1B4332'; e.target.style.transform = 'translateY(0)'; }}
             >
-              Download App
+              Launching Soon 🌾
             </a>
           </nav>
 
@@ -190,7 +190,7 @@ export default function Page() {
               fontWeight: 700, padding: '14px 24px', borderRadius: 14, fontSize: 15,
               textDecoration: 'none', textAlign: 'center',
             }}>
-              Download App
+              Launching Soon 🌾
             </a>
           </div>
         )}
@@ -253,7 +253,7 @@ export default function Page() {
                 onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 30px rgba(212,160,23,0.5)'; }}
                 onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 20px rgba(212,160,23,0.4)'; }}
                 >
-                  <span>📱</span> Download Free
+                  <span>🌾</span> Get Notified at Launch
                 </a>
                 <a href="#how-it-works" style={{
                   display: 'inline-flex', alignItems: 'center', gap: 10,
@@ -501,7 +501,7 @@ export default function Page() {
               onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; }}
               onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; }}
               >
-                Download for Android 📱
+                Get Notified at Launch 🌾
               </a>
             </div>
 
@@ -564,7 +564,7 @@ export default function Page() {
                 onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; }}
                 onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; }}
                 >
-                  🚜 Register as Driver
+                  🚜 Register Interest as a Driver
                 </a>
               </div>
 
@@ -626,34 +626,44 @@ export default function Page() {
           <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: 600, height: 600, background: 'radial-gradient(circle, rgba(212,160,23,0.08) 0%, transparent 65%)', borderRadius: '50%' }} />
           <div style={{ maxWidth: 700, margin: '0 auto', padding: '100px 24px', textAlign: 'center', position: 'relative', zIndex: 1 }}>
             <div className="animate-float" style={{ fontSize: 64, marginBottom: 24 }}>🌾</div>
+            <div style={{ fontSize: 12, fontWeight: 800, color: '#D4A017', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: 16 }}>🌾 Launching Soon</div>
             <h2 style={{ fontSize: 'clamp(36px, 5vw, 64px)', fontWeight: 900, letterSpacing: '-2px', color: '#fff', fontFamily: 'Fraunces, serif', lineHeight: 1.1, marginBottom: 20 }}>
               Ready to book your<br />
               <span style={{ color: '#D4A017' }}>first ride?</span>
             </h2>
             <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: 18, marginBottom: 48, lineHeight: 1.7 }}>
-              Free to download. No subscription. Works in Telugu, Hindi and English.
+              The KisanYantra app is in final testing. Leave your number and we&apos;ll notify you the moment it&apos;s live — free to download, no subscription.
             </p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, justifyContent: 'center', marginBottom: 40 }}>
               {[
-                { emoji: '🌾', sub: 'I am a farmer',     label: 'KisanYantra App', style: { background: '#D4A017', color: '#1A1A1A', boxShadow: '0 4px 24px rgba(212,160,23,0.4)' } },
-                { emoji: '🚜', sub: 'I own equipment',   label: 'Driver App',      style: { background: 'rgba(255,255,255,0.1)', color: '#fff', border: '1px solid rgba(255,255,255,0.15)' } },
+                { emoji: '🌾', sub: 'I am a farmer',   label: 'KisanYantra App · Coming soon' },
+                { emoji: '🚜', sub: 'I own equipment', label: 'Driver App · Coming soon' },
               ].map((btn, i) => (
-                <a key={i} href="#" style={{
+                <div key={i} style={{
                   display: 'flex', alignItems: 'center', gap: 14,
-                  padding: '16px 28px', borderRadius: 16, textDecoration: 'none', fontWeight: 800,
-                  transition: 'all 0.25s', ...btn.style,
-                }}
-                onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-3px)'; }}
-                onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; }}
-                >
+                  padding: '16px 28px', borderRadius: 16, fontWeight: 700,
+                  border: '1.5px dashed rgba(255,255,255,0.3)', color: 'rgba(255,255,255,0.8)',
+                }}>
                   <span style={{ fontSize: 28 }}>{btn.emoji}</span>
                   <div style={{ textAlign: 'left' }}>
                     <div style={{ fontSize: 11, opacity: 0.7, fontWeight: 600 }}>{btn.sub}</div>
-                    <div style={{ fontSize: 17 }}>{btn.label}</div>
+                    <div style={{ fontSize: 17, color: '#D4A017' }}>{btn.label}</div>
                   </div>
-                </a>
+                </div>
               ))}
             </div>
+            <a href="#contact" style={{
+              display: 'inline-flex', alignItems: 'center', gap: 10,
+              background: '#D4A017', color: '#1A1A1A', fontWeight: 800, fontSize: 16,
+              padding: '14px 28px', borderRadius: 14, textDecoration: 'none',
+              transition: 'all 0.25s cubic-bezier(0.16, 1, 0.3, 1)',
+              boxShadow: '0 4px 20px rgba(212,160,23,0.4)', marginBottom: 40,
+            }}
+            onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 30px rgba(212,160,23,0.5)'; }}
+            onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 20px rgba(212,160,23,0.4)'; }}
+            >
+              Get in Touch to Be Notified
+            </a>
             <div style={{ display: 'flex', justifyContent: 'center', gap: 32, flexWrap: 'wrap' }}>
               {['Free to download', 'Android', 'Telugu • Hindi • English'].map((t, i) => (
                 <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
