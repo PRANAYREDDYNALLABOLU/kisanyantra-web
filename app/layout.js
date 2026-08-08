@@ -1,4 +1,5 @@
 import './globals.css';
+import Header from './components/Header';
 
 export const metadata = {
   title: 'KisanYantra — Farm Equipment at Your Doorstep',
@@ -48,7 +49,10 @@ export default function RootLayout({ children }) {
         <meta name="theme-color" content="#1B4332" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
       </head>
-      <body>{children}</body>
+      <body>
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }
