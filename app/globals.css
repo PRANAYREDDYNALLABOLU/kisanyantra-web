@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Fraunces:ital,wght@0,700;0,900;1,700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -8,38 +8,11 @@
 html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   background: #FAFAF8;
   color: #1A1A1A;
   overflow-x: hidden;
   font-size: 16px;
-}
-
-.font-display { font-family: 'Space Grotesk', sans-serif; }
-.font-mono { font-family: 'IBM Plex Mono', monospace; }
-
-/* ── Dispatch ticket (How it works) ── */
-.ticket {
-  position: relative;
-  transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s cubic-bezier(0.16,1,0.3,1);
-}
-.ticket:hover { transform: translateY(-6px); box-shadow: 0 24px 48px rgba(10,27,18,0.14); }
-.ticket::before, .ticket::after {
-  content: '';
-  position: absolute; top: 56px; width: 16px; height: 16px; border-radius: 50%;
-  background: #FAFAF8; border: 1px solid #E8E5DE; z-index: 2;
-}
-.ticket::before { left: -9px; }
-.ticket::after  { right: -9px; }
-.ticket:first-child::before { display: none; }
-.ticket:last-child::after   { display: none; }
-
-/* ── Rotating gear watermark ── */
-@keyframes gearspin { to { transform: rotate(360deg); } }
-.gear-spin { animation: gearspin 100s linear infinite; }
-
-@media (prefers-reduced-motion: reduce) {
-  .gear-spin { animation: none; }
 }
 
 * { -webkit-tap-highlight-color: transparent; }
