@@ -3,8 +3,8 @@ import Header from './components/Header';
 
 export const metadata = {
   title: 'KisanYantra — Farm Equipment at Your Doorstep',
-  description: 'Book tractors, harvesters and farm equipment instantly. Verified equipment owners come directly to your farm. Serving farmers across Telangana and Andhra Pradesh.',
-  keywords: 'tractor booking, farm equipment, kisan, Indian farmers, agriculture, Telangana, Andhra Pradesh, cultivator, harvester, sprayer',
+  description: 'Book tractors, harvesters and farm equipment instantly. Verified equipment owners come directly to your farm. Serving farmers across India.',
+  keywords: 'tractor booking, farm equipment, kisan, Indian farmers, agriculture, India, cultivator, harvester, sprayer',
   authors: [{ name: 'KisanYantra', url: 'https://kisanyantra.in' }],
   metadataBase: new URL('https://kisanyantra.in'),
   openGraph: {

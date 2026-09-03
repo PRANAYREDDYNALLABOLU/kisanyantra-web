@@ -85,7 +85,7 @@ export default function AboutUs() {
           </h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 20 }}>
             {[
-              { name: 'Pranay Reddy Nallabolu', role: 'Founder & CEO', location: 'Hyderabad, Telangana', avatar: 'PR', color: 'linear-gradient(135deg, #1B4332, #40916C)' },
+              { name: 'Pranay Reddy Nallabolu', role: 'Founder & CEO', location: 'Nalgonda, Telangana', avatar: 'PR', color: 'linear-gradient(135deg, #1B4332, #40916C)' },
             ].map((member, i) => (
               <div key={i} style={{ background: '#fff', borderRadius: 20, padding: '32px 24px', border: '1px solid #E8E5DE', display: 'flex', alignItems: 'center', gap: 20 }}>
                 <div style={{ width: 64, height: 64, background: member.color, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 900, fontSize: 20, flexShrink: 0 }}>
