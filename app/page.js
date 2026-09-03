@@ -2,18 +2,26 @@
 import { useState, useEffect, useRef } from 'react';
 
 const EQUIPMENT = [
-  { icon: '🔧', name: 'Cultivator',     price: 500,  category: 'Tillage',   color: '#E8F5E9' },
-  { icon: '🚜', name: 'Plowing',        price: 600,  category: 'Tillage',   color: '#E3F2FD' },
-  { icon: '⚙️', name: 'Rotavator',      price: 700,  category: 'Tillage',   color: '#FFF8E1' },
-  { icon: '🌱', name: 'Seeder',         price: 450,  category: 'Planting',  color: '#F3E5F5' },
-  { icon: '💧', name: 'Sprayer',        price: 350,  category: 'Crop Care', color: '#E0F7FA' },
-  { icon: '📏', name: 'Laser Leveler',  price: 800,  category: 'Land Dev',  color: '#FBE9E7' },
-  { icon: '🌾', name: 'Harvester',      price: 1500, category: 'Harvest',   color: '#FFFDE7' },
-  { icon: '⛓️', name: 'Seed Drill',     price: 550,  category: 'Planting',  color: '#E8EAF6' },
+  { icon: '🔧', name: 'Cultivator',      price: 500,  category: 'Tillage',   color: '#E8F5E9' },
+  { icon: '🚜', name: 'Plowing',         price: 600,  category: 'Tillage',   color: '#E3F2FD' },
+  { icon: '⚙️', name: 'Rotavator',       price: 700,  category: 'Tillage',   color: '#FFF8E1' },
+  { icon: '🔨', name: 'Disc Harrow',     price: 500,  category: 'Tillage',   color: '#EDE7F6' },
+  { icon: '🚛', name: 'Trailer',         price: 400,  category: 'Transport', color: '#E0F2F1' },
+  { icon: '🌱', name: 'Seeder',          price: 450,  category: 'Planting',  color: '#F3E5F5' },
+  { icon: '⛓️', name: 'Seed Drill',      price: 550,  category: 'Planting',  color: '#E8EAF6' },
+  { icon: '💧', name: 'Sprayer',         price: 350,  category: 'Crop Care', color: '#E0F7FA' },
+  { icon: '💦', name: 'Boom Sprayer',    price: 600,  category: 'Crop Care', color: '#E1F5FE' },
+  { icon: '✂️', name: 'Rotary Mower',    price: 500,  category: 'Crop Care', color: '#F1F8E9' },
+  { icon: '📏', name: 'Laser Leveler',   price: 800,  category: 'Land Dev',  color: '#FBE9E7' },
+  { icon: '🏗️', name: 'Front Loader',    price: 700,  category: 'Land Dev',  color: '#FFF3E0' },
+  { icon: '🧱', name: 'Box Blade',       price: 400,  category: 'Land Dev',  color: '#EFEBE9' },
+  { icon: '🌾', name: 'Harvester',       price: 1500, category: 'Harvest',   color: '#FFFDE7' },
+  { icon: '🌽', name: 'Wheel Harvester', price: 1800, category: 'Harvest',   color: '#FFF9C4' },
+  { icon: '🌿', name: 'Straw Reaper',    price: 1200, category: 'Harvest',   color: '#F9FBE7' },
 ];
 
 const STEPS = [
-  { num: '01', icon: '🔧', title: 'Pick equipment',    body: 'Choose from 16+ types — cultivators, sprayers, harvesters and more.' },
+  { num: '01', icon: '🔧', title: 'Pick equipment',    body: 'Choose from 16 types — cultivators, sprayers, harvesters and more.' },
   { num: '02', icon: '📍', title: 'Drop your pin',     body: 'Tap your farm on the map or type the address. We find drivers near you.' },
   { num: '03', icon: '🚜', title: 'Driver heads out',  body: 'A verified equipment owner accepts and navigates to your field.' },
   { num: '04', icon: '✅', title: 'Confirm & pay',      body: 'Approve the fare and your driver starts right away. Rate your experience after.' },
@@ -124,7 +132,7 @@ export default function Page() {
                 borderRadius: 100, padding: '6px 16px', marginBottom: 28,
               }}>
                 <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#D4A017', display: 'inline-block' }} className="animate-pulse-ring" />
-                <span style={{ color: '#D4A017', fontSize: 13, fontWeight: 700, letterSpacing: '0.05em' }}>Now serving Telangana & AP</span>
+                <span style={{ color: '#D4A017', fontSize: 13, fontWeight: 700, letterSpacing: '0.05em' }}>Now serving farmers across India</span>
               </div>
 
               <h1 style={{
@@ -176,8 +184,8 @@ export default function Page() {
 
               <div style={{ display: 'flex', gap: 32, flexWrap: 'wrap', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: 32 }}>
                 {[
-                  { v: '16+',      l: 'Equipment types' },
-                  { v: 'TG & AP',  l: 'States covered' },
+                  { v: '16',      l: 'Equipment types' },
+                  { v: 'Pan-India', l: 'Coverage' },
                   { v: 'Verified', l: 'Equipment owners' },
                   { v: '24/7',     l: 'Support' },
                 ].map((s, i) => <StatCounter key={i} value={s.v} label={s.l} />)}
@@ -328,7 +336,7 @@ export default function Page() {
             <div>
               <div style={{ fontSize: 12, fontWeight: 800, color: '#40916C', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: 12 }}>What we offer</div>
               <h2 style={{ fontSize: 'clamp(32px, 4vw, 52px)', fontWeight: 900, letterSpacing: '-1.5px', fontFamily: 'Fraunces, serif', lineHeight: 1.1 }}>
-                16+ equipment types.<br />One app.
+                16 equipment types.<br />One app.
               </h2>
             </div>
             <p style={{ color: '#8A8A8A', fontSize: 16, maxWidth: 320, lineHeight: 1.7 }}>
