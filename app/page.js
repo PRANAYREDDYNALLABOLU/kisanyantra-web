@@ -2,22 +2,22 @@
 import { useState, useEffect, useRef } from 'react';
 
 const EQUIPMENT = [
-  { icon: '🔧', name: 'Cultivator',      price: '�',  category: 'Tillage',   color: '#E8F5E9' },
-  { icon: '🚜', name: 'Plowing',         price: '�',  category: 'Tillage',   color: '#E3F2FD' },
-  { icon: '⚙️', name: 'Rotavator',       price: '�',  category: 'Tillage',   color: '#FFF8E1' },
-  { icon: '🔨', name: 'Disc Harrow',     price: '�',  category: 'Tillage',   color: '#EDE7F6' },
-  { icon: '🚛', name: 'Trailer',         price: '�',  category: 'Transport', color: '#E0F2F1' },
-  { icon: '🌱', name: 'Seeder',          price: '�',  category: 'Planting',  color: '#F3E5F5' },
-  { icon: '⛓️', name: 'Seed Drill',      price: '�',  category: 'Planting',  color: '#E8EAF6' },
-  { icon: '💧', name: 'Sprayer',         price: '�',  category: 'Crop Care', color: '#E0F7FA' },
-  { icon: '💦', name: 'Boom Sprayer',    price: '�',  category: 'Crop Care', color: '#E1F5FE' },
-  { icon: '✂️', name: 'Rotary Mower',    price: '�',  category: 'Crop Care', color: '#F1F8E9' },
-  { icon: '📏', name: 'Laser Leveler',   price: '�',  category: 'Land Dev',  color: '#FBE9E7' },
-  { icon: '🏗️', name: 'Front Loader',    price: '�',  category: 'Land Dev',  color: '#FFF3E0' },
-  { icon: '🧱', name: 'Box Blade',       price: '�',  category: 'Land Dev',  color: '#EFEBE9' },
-  { icon: '🌾', name: 'Harvester',       price: '�', category: 'Harvest',   color: '#FFFDE7' },
-  { icon: '🌽', name: 'Wheel Harvester', price: '�', category: 'Harvest',   color: '#FFF9C4' },
-  { icon: '🌿', name: 'Straw Reaper',    price: '�', category: 'Harvest',   color: '#F9FBE7' },
+  { icon: '🔧', name: 'Cultivator',      price: '—',  category: 'Tillage',   color: '#E8F5E9' },
+  { icon: '🚜', name: 'Plowing',         price: '—',  category: 'Tillage',   color: '#E3F2FD' },
+  { icon: '⚙️', name: 'Rotavator',       price: '—',  category: 'Tillage',   color: '#FFF8E1' },
+  { icon: '🔨', name: 'Disc Harrow',     price: '—',  category: 'Tillage',   color: '#EDE7F6' },
+  { icon: '🚛', name: 'Trailer',         price: '—',  category: 'Transport', color: '#E0F2F1' },
+  { icon: '🌱', name: 'Seeder',          price: '—',  category: 'Planting',  color: '#F3E5F5' },
+  { icon: '⛓️', name: 'Seed Drill',      price: '—',  category: 'Planting',  color: '#E8EAF6' },
+  { icon: '💧', name: 'Sprayer',         price: '—',  category: 'Crop Care', color: '#E0F7FA' },
+  { icon: '💦', name: 'Boom Sprayer',    price: '—',  category: 'Crop Care', color: '#E1F5FE' },
+  { icon: '✂️', name: 'Rotary Mower',    price: '—',  category: 'Crop Care', color: '#F1F8E9' },
+  { icon: '📏', name: 'Laser Leveler',   price: '—',  category: 'Land Dev',  color: '#FBE9E7' },
+  { icon: '🏗️', name: 'Front Loader',    price: '—',  category: 'Land Dev',  color: '#FFF3E0' },
+  { icon: '🧱', name: 'Box Blade',       price: '—',  category: 'Land Dev',  color: '#EFEBE9' },
+  { icon: '🌾', name: 'Harvester',       price: '—', category: 'Harvest',   color: '#FFFDE7' },
+  { icon: '🌽', name: 'Wheel Harvester', price: '—', category: 'Harvest',   color: '#FFF9C4' },
+  { icon: '🌿', name: 'Straw Reaper',    price: '—', category: 'Harvest',   color: '#F9FBE7' },
 ];
 
 const STEPS = [
